@@ -4,11 +4,12 @@ module cfuncs
   public :: cnlprt, h100s, h100l
 
 contains
-  subroutine cnlprt(msg)
+  subroutine cnlprt(msg, plen)
     character(len=*), intent(in) :: msg
+    integer, intent(in) :: plen
     
     print *, ''  ! Print a blank line
-    print *, trim(msg)  ! Print the message without trailing spaces
+    print *, msg(1:plen)  ! Print the message up to plen characters
   end subroutine cnlprt
 
   subroutine h100s(i1, i2, d1, d2, d3, d4, a1, a2, d5)
